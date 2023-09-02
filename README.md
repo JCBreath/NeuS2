@@ -46,6 +46,23 @@ This project is an extension of [Instant-NGP](https://github.com/NVlabs/instant-
 
 **Please first see [Instant-NGP](https://github.com/NVlabs/instant-ngp#building-instant-ngp-windows--linux) for original requirements and compilation instructions. NeuS2 follows the installing steps of Instant-NGP.**
 
+For CRC:
+```
+module load cmake/3.26.4
+```
+
+Install PyTorch3D:
+```
+conda create -n pytorch3d python=3.9
+conda activate pytorch3d
+conda install -c "nvidia/label/cuda-11.6.2" cuda-toolkit
+conda install pytorch=1.13.0 torchvision pytorch-cuda=11.6 -c pytorch -c nvidia
+conda install -c fvcore -c iopath -c conda-forge fvcore iopath
+conda install pytorch3d -c pytorch3d
+python NeuS2/test_pytorch3d.py
+```
+
+
 Clone this repository and all its submodules using the following command:
 ```
 git clone --recursive https://github.com/19reborn/NeuS2
@@ -56,7 +73,7 @@ Then use CMake to build the project:
 
 ```
 cmake . -B build
-cmake --build build --config RelWithDebInfo -j 
+cmake --build build --config RelWithDebInfo -j 16
 ```
 
 For python useage, first install dependencies with conda and pip:
