@@ -19,9 +19,13 @@ if (NOT NGP_DEPLOY)
 	set(NGP_VERSION "${NGP_VERSION}dev")
 endif()
 
-option(NGP_BUILD_WITH_GUI "Build with GUI support (requires GLFW and GLEW)?" ON)
-option(NGP_BUILD_WITH_VULKAN "Build with Vulkan to enable DLSS support?" ON)
-option(NGP_BUILD_WITH_OPTIX "Build with OptiX to enable hardware ray tracing?" ON)
+option(NGP_BUILD_WITH_GUI "Build with GUI support (requires GLFW and GLEW)?" OFF)
+option(NGP_BUILD_WITH_VULKAN "Build with Vulkan to enable DLSS support?" OFF)
+option(NGP_BUILD_WITH_OPTIX "Build with OptiX to enable hardware ray tracing?" OFF)
+
+set(NGP_BUILD_WITH_GUI OFF)
+set(NGP_BUILD_WITH_VULKAN OFF)
+set(NGP_BUILD_WITH_OPTIX OFF)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
